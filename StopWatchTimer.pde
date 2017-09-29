@@ -1,5 +1,6 @@
+// https://forum.processing.org/one/topic/timer-in-processing.html
+
 class StopWatchTimer {
-  // https://forum.processing.org/one/topic/timer-in-processing.html
   
   int startTime = 0, stopTime = 0;
   boolean running = false;  
@@ -18,8 +19,7 @@ class StopWatchTimer {
     int elapsed;
     if (running) {
        elapsed = (millis() - startTime);
-    }
-    else {
+    } else {
       elapsed = (stopTime - startTime);
     }
     return elapsed;
