@@ -7,10 +7,12 @@ class StopWatch {
   boolean running = false;  
   int countdownMin = 0;
   
+  // If you create the class without a countdown argument, it counts up.
   StopWatch() {
     init();
   }
   
+  // If you create the class with a countdown argument, it counts down.
   StopWatch(int _countdownMin) {
     init();
     countdownMin = _countdownMin;
