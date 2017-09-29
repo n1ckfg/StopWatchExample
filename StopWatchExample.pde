@@ -1,20 +1,31 @@
 PFont font;
-int fontSize = 20;
-int maxMinutes = 2;
+int fontSize = 28;
 
-StopWatchTimer sw = new StopWatchTimer();
+StopWatch sw = new StopWatch(3);
 
 void setup() {
-  size(320, 240);
-  font = createFont("Arial", fontSize);
-  textFont(font);
+  size(320, 240, P2D);
+  smooth(4);
+  font = loadFont("Arial120.vlw");
+  textFont(font, fontSize);
+  ellipseMode(CENTER);
+  textAlign(CENTER);
+  strokeWeight(2);
   sw.start();
 }
 
 void draw() {
   background(0);
-  String s = ((maxMinutes - 1) - sw.minute()) + " : " + (59 - sw.second());
+  String s = "";
+  if (sw.countdownFinished()) {
+    stroke(0, 127, 200);
+    s = "FINISHED.";
+  } else {
+    stroke(255);
+    s = sw.minute() + " : " + sw.second();  
+  }
+  noFill();
+  ellipse(width/2, height/2, 120, 80);
   fill(255);
-  textAlign(CENTER);
-  text(s, width/2, height/2);
+  text(s, width/2, (height/2) + (fontSize/3));
 }
