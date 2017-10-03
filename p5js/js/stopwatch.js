@@ -40,14 +40,14 @@ class StopWatch {
         if (this.running) {
             var sec = (this.getElapsedTime() / 1000) % 60;
             if (this.countdownMin == 0) {
-                return sec;
+                return parseInt(sec);
             } else {
                 var secDown = constrain(59 - sec, 0, 59);
                 if (this.running && secDown == 0 && minute() == 0) this.init();
-                return secDown;
+                return parseInt(secDown);
             }
         } else {
-            return 0;
+            return parseInt(0);
         }
     }
     
@@ -55,21 +55,22 @@ class StopWatch {
         if (this.running) {
             var min = (this.getElapsedTime() / (1000*60)) % 60;
             if (this.countdownMin == 0) {
-                return min;
+                return parseInt(min);
             } else {
                 var minDown = constrain(this.countdownMin - min, 0, this.countdownMin);
-                return minDown;
+                return parseInt(minDown);
             }
         } else {
-            return 0;
+            return parseInt(0);
         }
     }
     
     hour() {
         if (this.running) {
-            return (this.getElapsedTime() / (1000*60*60)) % 24;
+            var hr = (this.getElapsedTime() / (1000*60*60)) % 24;
+            return parseInt(hr);
         } else {
-            return (0);
+            return parseInt(0);
         }
     }
     
