@@ -1,7 +1,6 @@
 PFont font;
 int fontSize = 28;
 
-// Using a countdown argument (in minutes) means it counts down instead of up.
 StopWatch sw = new StopWatch(3); 
 
 void setup() {
